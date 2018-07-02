@@ -334,6 +334,7 @@ fn main() {
     m.entry(":fries:"                           , "\"\u{01F35F}\"");
     m.entry(":frog:"                            , "\"\u{01F438}\"");
     m.entry(":frowning:"                        , "\"\u{01F626}\"");
+    m.entry(":fu:"                              , "\"\u{01F595}\"");
     m.entry(":fuelpump:"                        , "\"\u{0026FD}\"");
     m.entry(":full_moon:"                       , "\"\u{01F315}\"");
     m.entry(":full_moon_with_face:"             , "\"\u{01F31D}\"");
