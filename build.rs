@@ -479,6 +479,7 @@ fn main() {
     m.entry(":memo:"                            , "\"\u{01F4DD}\"");
     m.entry(":mens:"                            , "\"\u{01F6B9}\"");
     m.entry(":metro:"                           , "\"\u{01F687}\"");
+    m.entry(":metal:"                           , "\"\u{01F918}\"");
     m.entry(":microphone:"                      , "\"\u{01F3A4}\"");
     m.entry(":microscope:"                      , "\"\u{01F52C}\"");
     m.entry(":milky_way:"                       , "\"\u{01F30C}\"");
