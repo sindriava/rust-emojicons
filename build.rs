@@ -213,6 +213,7 @@ fn main() {
     m.entry(":congratulations:"                 , "\"\u{003297}\"");
     m.entry(":construction:"                    , "\"\u{01F6A7}\"");
     m.entry(":construction_worker:"             , "\"\u{01F477}\"");
+    m.entry(":control_knobs:"                   , "\"\u{01F39B}\"");
     m.entry(":convenience_store:"               , "\"\u{01F3EA}\"");
     m.entry(":cookie:"                          , "\"\u{01F36A}\"");
     m.entry(":cool:"                            , "\"\u{01F192}\"");
@@ -299,6 +300,7 @@ fn main() {
     m.entry(":fax:"                             , "\"\u{01F4E0}\"");
     m.entry(":fearful:"                         , "\"\u{01F628}\"");
     m.entry(":feet:"                            , "\"\u{01F43E}\"");
+    m.entry(":female_detective:"                , "\"\u{01F575}\"");
     m.entry(":ferris_wheel:"                    , "\"\u{01F3A1}\"");
     m.entry(":file_folder:"                     , "\"\u{01F4C1}\"");
     m.entry(":fire:"                            , "\"\u{01F525}\"");
@@ -374,6 +376,7 @@ fn main() {
     m.entry(":heavy_division_sign:"             , "\"\u{002797}\"");
     m.entry(":heavy_dollar_sign:"               , "\"\u{01F4B2}\"");
     m.entry(":heavy_exclamation_mark:"          , "\"\u{002757}\"");
+    m.entry(":heavy_heart_exclamation:"         , "\"\u{02763}\"");
     m.entry(":heavy_minus_sign:"                , "\"\u{002796}\"");
     m.entry(":heavy_multiplication_x:"          , "\"\u{002716}\"");
     m.entry(":heavy_plus_sign:"                 , "\"\u{002795}\"");
@@ -505,6 +508,7 @@ fn main() {
     m.entry(":mute:"                            , "\"\u{01F507}\"");
     m.entry(":nail_care:"                       , "\"\u{01F485}\"");
     m.entry(":name_badge:"                      , "\"\u{01F4DB}\"");
+    m.entry(":nauseated_face:"                  , "\"\u{01F922}\"");
     m.entry(":necktie:"                         , "\"\u{01F454}\"");
     m.entry(":negative_squared_cross_mark:"     , "\"\u{00274E}\"");
     m.entry(":neutral_face:"                    , "\"\u{01F610}\"");
@@ -565,6 +569,7 @@ fn main() {
     m.entry(":passport_control:"                , "\"\u{01F6C2}\"");
     m.entry(":paw_prints:"                      , "\"\u{01F43E}\"");
     m.entry(":peach:"                           , "\"\u{01F351}\"");
+    m.entry(":peanuts:"                         , "\"\u{01F95C}\"");
     m.entry(":pear:"                            , "\"\u{01F350}\"");
     m.entry(":pencil:"                          , "\"\u{01F4DD}\"");
     m.entry(":pencil2:"                         , "\"\u{00270F}\"");
