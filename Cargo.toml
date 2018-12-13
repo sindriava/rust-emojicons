@@ -12,10 +12,9 @@ license = "MIT"
 build = "build.rs"
 
 [build-dependencies]
-
-phf_codegen = "0.7.10"
+phf_codegen = "0.7.23"
 
 [dependencies]
-
-phf = "0.7.10"
-regex = "0.1.58"
+phf = "0.7.23"
+regex = "1.1" # pattern matching and subs
+lazy_static = "1.2" # regex pattern compilation
