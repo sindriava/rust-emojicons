@@ -1,5 +1,7 @@
 extern crate phf;
 extern crate regex;
+#[macro_use] 
+extern crate lazy_static;
 
 use std::fmt;
 use regex::{
@@ -31,6 +33,35 @@ macro_rules! emoji {
     )
 }
 
+
+// replaces all emojis with their unicode representation
+pub fn replace_all_emojis(input: &str) -> String{
+
+    // compiles expression only once
+    // and will resuse reference every time
+    lazy_static! {
+        static ref re: Regex = Regex::new(":([a-zA-Z0-9_+-]+):").unwrap();
+    }
+    
+    // replaces all references to emojis
+    let result = re.replace_all(input, |capts: &Captures| {
+        let sym = capts.get(0).unwrap().as_str();
+
+        // returns that string to bind to result
+        // as either the unicode emoji or the string
+        match EMOJIS.get(sym) {
+            Some(e) => format!("{}", e),
+            None    => sym.to_string()
+        }
+    });
+
+    // transfers ownership of string
+    result.into_owned()
+}
+
+
+
+
 /// Newtype used for substituting emoji codes for emoji
 ///
 /// Leaves the notation intact if a corresponding emoji is not found in the
@@ -39,11 +70,18 @@ pub struct EmojiFormatter<'a>(pub &'a str);
 
 impl<'a> std::fmt::Display for EmojiFormatter<'a> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let re = Regex::new(r":([a-zA-Z0-9_+-]+):").unwrap();
+        // compiles expression only once
+        // and will resuse reference every time
+        lazy_static! {
+            static ref re: Regex = Regex::new(":([a-zA-Z0-9_+-]+):").unwrap();
+        }
         
+        // replaces all references to emojis
         let result = re.replace_all(self.0, |capts: &Captures| {
-            let sym = capts.at(0).unwrap();
+            let sym = capts.get(0).unwrap().as_str();
 
+            // returns that string to bind to result
+            // as either the unicode emoji or the string
             match EMOJIS.get(sym) {
                 Some(e) => format!("{}", e),
                 None    => sym.to_string()
@@ -53,4 +91,3 @@ impl<'a> std::fmt::Display for EmojiFormatter<'a> {
         write!(f, "{}", result)
     }
 }
-
