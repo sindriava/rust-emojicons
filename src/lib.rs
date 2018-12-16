@@ -33,6 +33,35 @@ macro_rules! emoji {
     )
 }
 
+
+// replaces all emojis with their unicode representation
+pub fn replace_all_emojis(input: &str) -> String{
+
+    // compiles expression only once
+    // and will resuse reference every time
+    lazy_static! {
+        static ref re: Regex = Regex::new(":([a-zA-Z0-9_+-]+):").unwrap();
+    }
+    
+    // replaces all references to emojis
+    let result = re.replace_all(input, |capts: &Captures| {
+        let sym = capts.get(0).unwrap().as_str();
+
+        // returns that string to bind to result
+        // as either the unicode emoji or the string
+        match EMOJIS.get(sym) {
+            Some(e) => format!("{}", e),
+            None    => sym.to_string()
+        }
+    });
+
+    // transfers ownership of string
+    result.into_owned()
+}
+
+
+
+
 /// Newtype used for substituting emoji codes for emoji
 ///
 /// Leaves the notation intact if a corresponding emoji is not found in the
@@ -61,23 +90,4 @@ impl<'a> std::fmt::Display for EmojiFormatter<'a> {
 
         write!(f, "{}", result)
     }
-}
-
-
-#[cfg(test)]
-mod tests{
-    // ease of using names in this file
-    use super::*;
-
-    #[test]
-    fn date_check() {
-        // a simple smile
-        let check = format!("{}", EmojiFormatter("Hello, :smile:!"));
-        assert_eq!(check, "Hello, \u{01F604}!");
-        
-        // a simple hello world
-        let check_world = format!("{}", EmojiFormatter("Hello, :earth_americas:!"));
-        assert_eq!(check_world, "Hello, \u{01F30E}!");
-    }
-
 }
